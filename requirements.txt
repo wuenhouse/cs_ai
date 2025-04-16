@@ -1,0 +1,14 @@
+streamlit
+pandas
+langchain
+langchain-openai
+langchain-community
+openai
+python-dotenv
+plotly
+pymysql
+sshtunnel
+faiss-cpu
+python-docx
+docx2txt
+jieba
