@@ -86,7 +86,7 @@ streamlit run app.py
 - OpenAI API 密鑰
 - 足夠的網絡連接以訪問 OpenAI API
 
-### LINE整合街口
+### 整合LINE接口
 
 在原本的AI客服上 加入一個使用 Flask 框架開發的 LINE 聊天機器人應用程式。以下是對程式碼的解說:
 
