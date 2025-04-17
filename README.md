@@ -86,6 +86,48 @@ streamlit run app.py
 - OpenAI API 密鑰
 - 足夠的網絡連接以訪問 OpenAI API
 
+### LINE整合街口
+
+在原本的AI客服上 加入一個使用 Flask 框架開發的 LINE 聊天機器人應用程式。以下是對程式碼的解說:
+
+1. **匯入必要的模組**:
+   - `flask`: 用於建立 Flask 應用程式。
+   - `requests`: 用於發送 HTTP 請求。
+   - `os`: 用於存取作業系統環境變數。
+   - `time`: 用於處理時間相關操作。
+   - `json`: 用於處理 JSON 格式的資料。
+   - `dotenv`: 用於載入環境變數。
+   - `langchain_openai`: 用於初始化 OpenAI 語言模型。
+   - `customer_service_ai`: 用於初始化客服助手。
+
+2. **載入環境變數**:
+   - 使用 `dotenv` 模組載入環境變數,包括 LINE 頻道存取權杖。
+
+3. **初始化 Flask 應用程式**:
+   - 建立 Flask 應用程式實例。
+
+4. **初始化 LLM 和客服助手**:
+   - `initialize_llm()` 函數初始化 OpenAI 語言模型。
+   - `initialize_customer_service()` 函數初始化客服助手,並載入預設的 Q&A 資料。
+
+5. **處理 LINE 聊天機器人的 Webhook**:
+   - `webhook()` 函數處理 LINE 聊天機器人收到的事件,主要是文字訊息。
+   - 對於每個文字訊息事件,會呼叫 `handle_user_message()` 函數處理用戶消息,並呼叫 `reply_message()` 函數回覆用戶。
+
+6. **處理用戶消息**:
+   - `handle_user_message()` 函數調用客服助手的 `answer_question()` 方法,並返回助手的回應。
+
+7. **回覆用戶**:
+   - `reply_message()` 函數使用 LINE Messaging API 發送回覆消息給用戶。
+
+8. **啟動應用程式**:
+   - 在 `if __name__ == '__main__':` 區塊中啟動 Flask 應用程式。
+
+9. **本地端開發**:
+   - 整合 ngrok 來實現 指令：ngrok http http://127.0.0.1:5000
+   - 將ngrok提供的API端口，填回LINE的 WebHook 即可串接
+
+
 ## 授權
 
 MIT
